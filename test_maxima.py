@@ -26,10 +26,12 @@ def test_max_on_both_borders():
     exp = [0,3,5]
     assert exp == out
 
-# additional tests for
-# - max on both borders
-#   x = [4, 2, 1, 3, 1, 2]
-# - max on both borders, absolute max on right border
+def test_max_on_right_border():
+    inp = [4, 2, 1, 3, 1, 5]
+    out = find_maxima(inp)
+    exp = [0,3,5]
+    assert exp == out
+
 #   x = [4, 2, 1, 3, 1, 5]
 # - one max (absolute) on left border
 #   x = [4, 2, 1, 3, 1]
