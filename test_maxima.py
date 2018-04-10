@@ -32,13 +32,34 @@ def test_max_on_right_border():
     exp = [0,3,5]
     assert exp == out
 
-#   x = [4, 2, 1, 3, 1, 5]
-# - one max (absolute) on left border
-#   x = [4, 2, 1, 3, 1]
-# - plateau
-#   x = [1, 2, 2, 1]
-#   (decide for a sensible output in this case)
-# - test cases for plateau
-#   x = [1, 2, 2, 3, 1]
-#   x = [1, 3, 2, 2, 1]
-#   x = [3, 2, 2, 3]
+def test_absolute_left_border():
+    inp = [4, 2, 1, 3, 1]
+    out = find_maxima(inp)
+    exp = [0,3]
+    assert exp == out
+
+def test_plateau():
+    inp = [1, 2, 2, 1]
+    out = find_maxima(inp)
+    exp = []
+    assert exp == out
+
+def test_plateau_before_max():
+    inp = [1, 2, 2, 3, 1]
+    out = find_maxima(inp)
+    exp = [3]
+    assert exp == out
+
+
+def test_plateau_after_max():
+    inp = [1, 3, 2, 2, 1]
+    out = find_maxima(inp)
+    exp = [1]
+    assert exp == out
+
+
+def test_plateau_between_max():
+    inp = [3, 2, 2, 3]
+    out = find_maxima(inp)
+    exp = [0,3]
+    assert exp == out
